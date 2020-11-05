@@ -60,19 +60,33 @@ return [
             ],
         ],
         [
-            "text" => "Om",
-            "url" => "om",
-            "title" => "Om denna webbplats.",
-        ],
-        [
-            "text" => "Styleväljare",
-            "url" => "style",
-            "title" => "Välj stylesheet.",
-        ],
-        [
             "text" => "Verktyg",
             "url" => "verktyg",
             "title" => "Verktyg och möjligheter för utveckling.",
+            "submenu" => [
+                "items" => [
+                    [
+                        "text" => "Dokumentation",
+                        "url" => "doc",
+                        "title" => "Dokumentation anax",
+                    ],
+                    [
+                        "text" => "Anax Dev",
+                        "url" => "dev",
+                        "title" => "Dev verktyg",
+                    ],
+                    [
+                        "text" => "Styleväljare",
+                        "url" => "style",
+                        "title" => "Styleväljare",
+                    ],
+                ],
+            ],
+        ],
+        [
+            "text" => "Om",
+            "url" => "om",
+            "title" => "Om denna webbplats.",
         ],
     ],
 ];
