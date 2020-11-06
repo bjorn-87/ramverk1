@@ -59,6 +59,11 @@ return [
             ],
         ],
         [
+            "text" => "Validate IP",
+            "url" => "ip",
+            "title" => "validera ip address",
+        ],
+        [
             "text" => "Verktyg",
             "url" => "verktyg",
             "title" => "Verktyg och möjligheter för utveckling.",

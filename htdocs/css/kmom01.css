@@ -5435,6 +5435,9 @@ code {
 .block.toc a:hover {
   text-decoration: underline;
 }
+.toc .section-header {
+  font-weight: 700;
+}
 .outer-wrap-footer {
   background-color: #156bba;
   color: #e8e8e8;

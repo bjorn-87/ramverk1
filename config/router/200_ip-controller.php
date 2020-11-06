@@ -5,9 +5,9 @@
 return [
     "routes" => [
         [
-            "info" => "Sample Json Controller.",
+            "info" => "Validate ip Controller.",
             "mount" => "ip",
-            "handler" => "\Anax\Controller\IpController",
+            "handler" => "\Bjos\Validate\ValidateIpController",
         ],
     ]
 ];
