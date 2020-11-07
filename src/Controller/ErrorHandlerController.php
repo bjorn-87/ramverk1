@@ -8,6 +8,8 @@ use Anax\Route\Exception\NotFoundException;
 
 /**
  * A controller to ease with development and debugging information.
+ *
+ * @SuppressWarnings(PHPMD.UnusedFormalParameter)
  */
 class ErrorHandlerController implements ContainerInjectableInterface
 {
