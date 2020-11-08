@@ -25,13 +25,16 @@ namespace Anax\View;
             <p>Typ: <?= $type ?></p>
             <p>Host: <?= $host ?></p>
         </div>
+        <div class="resetBtn">
+            <a href="?">Återställ</a>
+        </div>
     <?php elseif ($valid === "False") : ?>
         <div class="NotValid">
             <p>ip: <?= htmlentities($ip) ?></p>
             <p>Validerar: <?= $valid ?></p>
         </div>
+        <div class="resetBtn">
+            <a href="?">Återställ</a>
+        </div>
     <?php endif; ?>
-    <div class="resetBtn">
-        <a href="?">Återställ</a>
-    </div>
 </div>

@@ -10,13 +10,8 @@ use Anax\Commons\ContainerInjectableTrait;
 // use Anax\Route\Exception\InternalErrorException;
 
 /**
- * A sample controller to show how a controller class can be implemented.
- * The controller will be injected with $di if implementing the interface
- * ContainerInjectableInterface, like this sample class does.
- * The controller is mounted on a particular route and can then handle all
- * requests for that mount point.
+ * Controller to validate IP address.
  *
- * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
 class ValidateIpController implements ContainerInjectableInterface
 {
@@ -24,18 +19,16 @@ class ValidateIpController implements ContainerInjectableInterface
 
     /**
      * This is the index method action, it handles:
-     * ANY METHOD mountpoint
-     * ANY METHOD mountpoint/
-     * ANY METHOD mountpoint/index
+     * IP validation of the queryparameter ip.
      *
-     * @return string
+     * @return object
      */
     public function indexAction() : object
     {
         $title = "Validate IP";
-        $valid = "";
-        $type = "";
-        $host = "";
+        $valid = null;
+        $type = null;
+        $host = null;
         $page = $this->di->get("page");
         $ipAdr = $this->di->request->getGet("ip");
 
@@ -62,6 +55,8 @@ class ValidateIpController implements ContainerInjectableInterface
             "type" => $type,
             "host" => $host
         ]);
+
+        $page->add("validate-ip/ip-json");
 
         return $page->render([
             "title" => $title
