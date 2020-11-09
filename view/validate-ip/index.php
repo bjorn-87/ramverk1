@@ -15,11 +15,12 @@ namespace Anax\View;
     <h1>Validera IP</h1>
 
     <form class="validateForm" method="get">
-        <input type="text" name="ip" value=""/>
+        <label>Skriv in ip-adress att validera:</label>
+        <input placeholder="ex. 1.1.1.1" type="text" name="ip" value=""/>
         <input type="submit" name="" value="Validera"/>
     </form>
     <?php if ($valid === "True") : ?>
-        <div class="valid">
+        <div class="validResult">
             <p>ip: <?= htmlentities($ip) ?></p>
             <p>Validerar: <?= $valid ?></p>
             <p>Typ: <?= $type ?></p>
@@ -29,7 +30,7 @@ namespace Anax\View;
             <a href="?">Återställ</a>
         </div>
     <?php elseif ($valid === "False") : ?>
-        <div class="NotValid">
+        <div class="notValidResult">
             <p>ip: <?= htmlentities($ip) ?></p>
             <p>Validerar: <?= $valid ?></p>
         </div>

@@ -26,6 +26,7 @@ class IpJsonController implements ContainerInjectableInterface
         $json = [
             "data" => [
                 "message" => "Use POST with IP-address in body to validate",
+                "example" => "POST /ip-json/ {'ip': '8.8.8.8'}",
             ],
         ];
         return [$json];

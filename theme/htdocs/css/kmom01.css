@@ -5526,6 +5526,74 @@ h1 {
 .rm-button-face-1 {
   font-size: 24px;
 }
+/*!
+ * Stylesheet for ramverk1 kmom01.
+ * kmom01_body
+ * This stylesheet is for the ramverk1 course and kmom01.
+ */
+.validateIp input[type=submit] {
+  color: #fff;
+  background-color: #1e95a2;
+  border: 1px solid #cccccc;
+  text-decoration: none;
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 1.4rem;
+  padding: 0.4rem 1rem;
+  text-align: center;
+  line-height: 1.4;
+  margin-bottom: 1.4rem;
+  cursor: pointer;
+  width: 50%;
+}
+.validateIp input[type=text] {
+  font-size: 1.4rem;
+  line-height: 1.4;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 0.2rem;
+  padding: 0.5rem 2rem;
+  box-sizing: border-box;
+  width: 50%;
+  margin-bottom: 1.4rem;
+  resize: none;
+}
+.validateIp label {
+  font-weight: bold;
+  margin: 1rem 0 0 0;
+  display: block;
+}
+.testRoutes input.valid {
+  background-color: #2eb82e;
+}
+.testRoutes input.valid:hover {
+  background-color: #1f7a1f;
+}
+.testRoutes input.notValid {
+  background-color: #ff3333;
+}
+.testRoutes input.notValid:hover {
+  background-color: #cc0000;
+}
+.ApiInstruction {
+  display: block;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  padding: 0.5em;
+}
+.validResult {
+  border: 1px solid #ccc;
+  background-color: #d7f4d7;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+}
+.notValidResult {
+  border: 1px solid #333;
+  background-color: #ffb3b3;
+  padding: 0.5em;
+  color: #222;
+  margin-bottom: 0.5em;
+}
 /**
 * Layout style for general structure of header, navbar, main, footer
 * and other regions of the page including route specific styles.
@@ -5597,6 +5665,10 @@ h1 {
   .region-header-col-1,
   .region-header-col-3 {
     margin-bottom: 0.5em;
+  }
+  .validateIp input[type=submit],
+  .validateIp input[type=text] {
+    width: 100%;
   }
 }
 /**
