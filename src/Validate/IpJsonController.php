@@ -42,7 +42,7 @@ class IpJsonController implements ContainerInjectableInterface
         $valid = null;
         $type = null;
         $host = null;
-        $page = $this->di->get("page");
+        // $page = $this->di->get("page");
         $ipAdr = $this->di->request->getPost("ip");
 
         if ($ipAdr) {
