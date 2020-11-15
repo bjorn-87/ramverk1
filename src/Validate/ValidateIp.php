@@ -2,7 +2,6 @@
 
 namespace Bjos\Validate;
 
-
 class ValidateIp
 {
 
@@ -12,10 +11,10 @@ class ValidateIp
      *
      * @return bool
      */
-    public function validate(string $ip = null) : bool
+    public function validate(string $ipAdr = null) : bool
     {
-        if ($ip) {
-            if (filter_var($ip, FILTER_VALIDATE_IP)) {
+        if ($ipAdr) {
+            if (filter_var($ipAdr, FILTER_VALIDATE_IP)) {
                 return true;
             } else {
                 return false;
@@ -32,13 +31,13 @@ class ValidateIp
      *
      * @return string|void  $type
      */
-    public function getIpType(string $ip)
+    public function getIpType(string $ipAdr)
     {
         $type = null;
 
-        if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+        if (filter_var($ipAdr, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
             $type = "IPV4";
-        } elseif (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
+        } elseif (filter_var($ipAdr, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
             $type = "IPV6";
         }
 
@@ -51,9 +50,9 @@ class ValidateIp
      *
      * @return string $host
      */
-    public function getHostName(string $ip) : string
+    public function getHostName(string $ipAdr) : string
     {
-        $host = gethostbyaddr($ip);
+        $host = gethostbyaddr($ipAdr);
         return $host;
     }
 }
