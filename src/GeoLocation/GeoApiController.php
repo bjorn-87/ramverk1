@@ -46,10 +46,6 @@ class GeoApiController implements ContainerInjectableInterface
     {
         $ipAdr = $this->di->request->getPost("ip");
 
-        $host = null;
-        $type = null;
-        $location = null;
-
         $geo = new GeoLocation("/config/api_ipstack.php");
         $validateIp = new ValidateIp;
         $url = "http://api.ipstack.com/";
