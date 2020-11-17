@@ -39,7 +39,7 @@ namespace Anax\View;
         </form>
     </div>
     <h3>Lokalisera ip med GeoLocation Api</h3>
-    <label>Skriv in ip-adress att validera:</label>
+    <label>Skriv in ip-adress att lokalisera:</label>
     <form class="validateForm" method="post" action="geoapi">
         <input type="text" name="ip" value="<?= $userIp ?>"/>
         <input type="submit" name="" value="Validera"/>

@@ -25,10 +25,14 @@ namespace Anax\View;
             <p><b>IP:</b> <?= htmlentities($ip) ?></p>
             <p><b>Typ:</b> <?= $type ?></p>
             <p><b>Host:</b> <?= $host ?></p>
+            <p><b>Kontinent:</b> <?= htmlentities($location["continent_name"]) ?></p>
             <p><b>Land:</b> <?= htmlentities($location["country_name"]) ?></p>
             <p><b>Ort:</b> <?= htmlentities($location["city"]) ?></p>
-            <p><b>Longitude:</b> <?= htmlentities($location["longitude"]) ?></p>
+            <p><b>Postkod:</b> <?= htmlentities($location["zip"]) ?></p>
             <p><b>Latitude:</b> <?= htmlentities($location["latitude"]) ?></p>
+            <p><b>Longitude:</b> <?= htmlentities($location["longitude"]) ?></p>
+            <p><a href="<?= htmlentities($mapLink) ?>">Kartlänk</a></p>
+            <img class="countryFlag" src="<?= htmlentities($location["location"]["country_flag"]) ?>"/>
         </div>
         <div class="resetBtn">
             <a href="?">Återställ</a>

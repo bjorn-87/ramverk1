@@ -53,6 +53,7 @@ class GeoApiController implements ContainerInjectableInterface
         $geo = new GeoLocation("/config/api_ipstack.php");
         $validateIp = new ValidateIp;
         $url = "http://api.ipstack.com/";
+        $mapUrl = "https://www.openstreetmap.org/search?query=";
 
         $valid = $validateIp->validate($ipAdr);
 
@@ -60,15 +61,20 @@ class GeoApiController implements ContainerInjectableInterface
             $location = $geo->getLocation($ipAdr, $url, "?access_key=");
             $type = $validateIp->getIpType($ipAdr);
             $host = $validateIp->getHostName($ipAdr);
+            $mapLink = $mapUrl . $location['latitude'] . "," . $location['longitude'];
             $json = [
                 "ip" => $ipAdr,
                 "valid" => $valid,
                 "type" => $type,
                 "host" => $host,
+                "continent_name" => $location["continent_name"],
                 "country" => $location["country_name"],
                 "city" => $location["city"],
+                "zip" => $location["zip"],
+                "latitude" => $location["latitude"],
                 "longitude" => $location["longitude"],
-                "latitude" => $location["latitude"]
+                "country_flag" => $location["location"]["country_flag"],
+                "map_link" => $location['latitude'] !== null ? $mapLink : null
             ];
         } else if (isset($ipAdr) && !$valid) {
             http_response_code(400);

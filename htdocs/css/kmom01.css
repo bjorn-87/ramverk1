@@ -5594,6 +5594,10 @@ h1 {
   color: #222;
   margin-bottom: 0.5em;
 }
+.countryFlag {
+  width: 400px;
+  border: 1px solid #444;
+}
 /**
 * Layout style for general structure of header, navbar, main, footer
 * and other regions of the page including route specific styles.
@@ -6159,21 +6163,21 @@ figure.figure-codepen {
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Acme Regular'), local('Acme-Regular'), url(https://fonts.gstatic.com/s/acme/v11/RrQfboBx-C5_XxrBaw.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/acme/v11/RrQfboBx-C5_XxrBaw.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Sintony';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Sintony'), url(https://fonts.gstatic.com/s/sintony/v8/XoHm2YDqR7-98cVUETMtvw.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/sintony/v8/XoHm2YDqR7-98cVUETMtvw.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Cinzel';
@@ -6187,7 +6191,7 @@ figure.figure-codepen {
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v15/JTUSjIg1_i6t8kCHKm459Wlhzg.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/montserrat/v15/JTUSjIg1_i6t8kCHKm459Wlhzg.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Orbitron';
@@ -6201,26 +6205,26 @@ figure.figure-codepen {
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Special Elite Regular'), local('SpecialElite-Regular'), url(https://fonts.gstatic.com/s/specialelite/v11/XLYgIZbkc4JPUL5CVArUVL0ntnAOTQ.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/specialelite/v11/XLYgIZbkc4JPUL5CVArUVL0ntnAOTQ.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Turret Road';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Turret Road Regular'), local('TurretRoad-Regular'), url(https://fonts.gstatic.com/s/turretroad/v2/pxiAypMgpcBFjE84Zv-fE0tCMPc.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/turretroad/v2/pxiAypMgpcBFjE84Zv-fE0tCMPc.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Bree Serif';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Bree Serif Regular'), local('BreeSerif-Regular'), url(https://fonts.gstatic.com/s/breeserif/v10/4UaHrEJCrhhnVA3DgluA96rp4g.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/breeserif/v10/4UaHrEJCrhhnVA3DgluA96rp4g.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFVZ0e.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/opensans/v18/mem8YaGs126MiZpBA-UFVZ0e.ttf) format('truetype');
 }

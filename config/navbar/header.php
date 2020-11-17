@@ -59,9 +59,23 @@ return [
             ],
         ],
         [
-            "text" => "Validera IP",
-            "url" => "ip",
-            "title" => "Validera ip address",
+            "text" => "Validering",
+            "url" => "validering",
+            "title" => "Validera/lokalisera IP",
+            "submenu" => [
+                "items" => [
+                    [
+                        "text" => "Validera IP(kmom01)",
+                        "url" => "ip",
+                        "title" => "Validera IP",
+                    ],
+                    [
+                        "text" => "Lokalisera IP(kmom02)",
+                        "url" => "geo",
+                        "title" => "Lokalisera IP",
+                    ],
+                ],
+            ],
         ],
         [
             "text" => "Verktyg",
