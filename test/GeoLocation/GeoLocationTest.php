@@ -96,17 +96,23 @@ class GeoLocationTest extends TestCase
     }
 
     /**
-     * Test get location with incorrect api-key.
+     * Test get location with enviroment variable.
      */
-    public function testGetLocationFail()
+    public function testGetLocationFromEnviroment()
     {
+        $file = ANAX_INSTALL_PATH . "/config/api_ipstack.php";
+        if (file_exists($file)) {
+            $ipStack = require $file;
+            $api = $ipStack["apiKey"];
+            putenv("API_KEY=$api");
+        }
+
         $geo = new GeoLocation();
-        putenv("API_KEY=dfhfdg");
         $ipAdr = "8.8.8.8";
         $url = "http://api.ipstack.com/";
         $option = "?access_key=";
         $res = $geo->getLocation($ipAdr, $url, $option);
-        $exp = false;
-        $this->assertEquals($exp, $res["success"]);
+        $exp = "94041";
+        $this->assertEquals($exp, $res["zip"]);
     }
 }
