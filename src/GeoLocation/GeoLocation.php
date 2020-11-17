@@ -16,9 +16,15 @@ class GeoLocation
     public function __construct(string $filePath = "test.php", string $apiKey = "apiKey")
     {
         $this->filePath = $filePath;
-        $this->file = ANAX_INSTALL_PATH . $this->filePath;
-        $this->api = file_exists($this->file) ? require $this->file : getenv("API_KEY");
         $this->apiKey = $apiKey;
+        $this->file = ANAX_INSTALL_PATH . $this->filePath;
+        // $this->api = file_exists($this->file) ? require $this->file : getenv("API_KEY");
+        if (file_exists($this->file)) {
+            $ipStack = require $this->file;
+            $this->api = $ipStack[$this->apiKey];
+        } else {
+            $this->api = getenv("API_KEY");
+        }
     }
 
     /**
@@ -52,7 +58,7 @@ class GeoLocation
         $res = null;
 
         if (filter_var($ipAdr, FILTER_VALIDATE_IP) && isset($url)) {
-            $url = $url . $ipAdr . $option . $this->api[$this->apiKey];
+            $url = $url . $ipAdr . $option . $this->api;
 
             $curl = curl_init();
             curl_setopt($curl, CURLOPT_URL, $url);

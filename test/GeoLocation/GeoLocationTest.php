@@ -94,4 +94,19 @@ class GeoLocationTest extends TestCase
         $exp = "94041";
         $this->assertEquals($exp, $res["zip"]);
     }
+
+    /**
+     * Test get location with incorrect api-key.
+     */
+    public function testGetLocationFail()
+    {
+        $geo = new GeoLocation();
+        putenv("API_KEY=dfhfdg");
+        $ipAdr = "8.8.8.8";
+        $url = "http://api.ipstack.com/";
+        $option = "?access_key=";
+        $res = $geo->getLocation($ipAdr, $url, $option);
+        $exp = false;
+        $this->assertEquals($exp, $res["success"]);
+    }
 }

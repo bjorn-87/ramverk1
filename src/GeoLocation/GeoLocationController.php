@@ -60,7 +60,9 @@ class GeoLocationController implements ContainerInjectableInterface
 
         $page->add("geolocation/index", $data);
 
-        // $page->add("validate-ip/ip-json");
+        $page->add("geolocation/geoapi", [
+            "userIp" => $userIp
+        ]);
 
         return $page->render([
             "title" => $title
