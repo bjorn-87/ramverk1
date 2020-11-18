@@ -10,12 +10,15 @@ This is my repo for the BTH course Ramverk1-V2.
 Clone this repo and use the command `make install`
 
 # Add api key from [ipstack](https://ipstack.com/)
-Create file /config/api_ipstack.php and copy the code below or rename api_ipstack_sample.php.
-`<?php
+Create file `/config/api_ipstack.php` and copy the code below or rename the file `/config/api_ipstack_sample.php`.  
+
+```
+<?php
+
 return [
     "apiKey" => "Replace this with valid Apikey"
 ];
-`
+```
 # Testing
 ### `make test`
 Before testing add a valid API-key and then run the command
