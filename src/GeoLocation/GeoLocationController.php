@@ -34,12 +34,10 @@ class GeoLocationController implements ContainerInjectableInterface
         $host = null;
         $type = null;
         $location = null;
-        $mapLink = null;
 
         $geo = new GeoLocation("/config/api_ipstack.php");
         $validateIp = new ValidateIp;
         $url = "http://api.ipstack.com/";
-        $mapUrl = "https://www.openstreetmap.org/search?query=";
 
         $valid = $validateIp->validate($ipAdr);
 
@@ -47,7 +45,6 @@ class GeoLocationController implements ContainerInjectableInterface
             $type = $validateIp->getIpType($ipAdr);
             $host = $validateIp->getHostName($ipAdr);
             $location = $geo->getLocation($ipAdr, $url, "?access_key=");
-            $mapLink = $mapUrl . $location['latitude'] . "," . $location['longitude'];
         }
 
         $userIp = $geo->getUserIp();
@@ -58,11 +55,14 @@ class GeoLocationController implements ContainerInjectableInterface
             "type" => $type,
             "host" => $host,
             "userIp" => $userIp,
-            "location" => $location,
-            "mapLink" => $mapLink
+            "location" => $location
         ];
 
         $page->add("geolocation/index", $data);
+
+        $page->add("geolocation/geomap", [
+            "location" => $location
+        ]);
 
         $page->add("geolocation/geoapi", [
             "userIp" => $userIp

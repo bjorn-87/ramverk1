@@ -31,11 +31,10 @@ namespace Anax\View;
             <p><b>Postkod:</b> <?= htmlentities($location["zip"]) ?></p>
             <p><b>Latitude:</b> <?= htmlentities($location["latitude"]) ?></p>
             <p><b>Longitude:</b> <?= htmlentities($location["longitude"]) ?></p>
-            <p><a href="<?= htmlentities($mapLink) ?>">Kartlänk</a></p>
             <img class="countryFlag" src="<?= htmlentities($location["location"]["country_flag"]) ?>"/>
         </div>
         <div class="resetBtn">
-            <a href="?">Återställ</a>
+            <a href="?">Återställ sökning</a>
         </div>
     <?php elseif (!$valid && isset($ip)) : ?>
         <div class="notValidResult">
