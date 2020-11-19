@@ -22,6 +22,7 @@ class GeoApiController implements ContainerInjectableInterface
     private $geo;
     private $option;
     private $url;
+    private $validateIp;
 
     /**
      * The initialize method is optional and will always be called before the

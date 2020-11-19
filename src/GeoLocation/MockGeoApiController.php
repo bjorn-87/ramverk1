@@ -23,7 +23,6 @@ class MockGeoApiController implements ContainerInjectableInterface
      * This is the index method action, it handles:
      * IP validation and localization of the queryparameter ip.
      *
-     * @return array
      */
     public function indexActionGet()
     {
