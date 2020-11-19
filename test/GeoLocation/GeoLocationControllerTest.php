@@ -28,8 +28,8 @@ class GeoLocationControllerTest extends TestCase
 
         // Create and initiate the controller
         $this->controller = new GeoLocationController;
-        $this->controller->initialize("http://www.student.bth.se/~bjos19/dbwebb-kurser/ramverk1/me/redovisa/htdocs/testapi", "");
         $this->controller->setDi($di);
+        $this->controller->initialize("http://www.student.bth.se/~bjos19/dbwebb-kurser/ramverk1/me/redovisa/htdocs/testapi", "");
     }
 
     /**
@@ -37,8 +37,7 @@ class GeoLocationControllerTest extends TestCase
      */
     public function testIndexAction()
     {
-        $request = $this->di->get("request");
-        $request->setGet("ip", "2.2.2.2");
+        $this->di->request->setGet("ip", "2.2.2.2");
         $res = $this->controller->indexActionGet();
         $this->assertInstanceOf(ResponseUtility::class, $res);
     }
