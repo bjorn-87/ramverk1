@@ -13,7 +13,7 @@ class GeoLocationTest extends TestCase
 
     protected function setUp() : void
     {
-        $this->geolocation = new GeoLocation("/config/api_ipstack.php");
+        $this->geolocation = new GeoLocation("test.php");
     }
 
     /**
@@ -87,32 +87,11 @@ class GeoLocationTest extends TestCase
      */
     public function testGetLocationSuccess()
     {
-        $ipAdr = "8.8.8.8";
-        $url = "http://api.ipstack.com/";
-        $option = "?access_key=";
+        $ipAdr = "";
+        $url = "http://www.student.bth.se/~bjos19/dbwebb-kurser/ramverk1/me/redovisa/htdocs/testapi";
+        $option = "";
         $res = $this->geolocation->getLocation($ipAdr, $url, $option);
-        $exp = "94041";
-        $this->assertEquals($exp, $res["zip"]);
-    }
-
-    /**
-     * Test get location with enviroment variable.
-     */
-    public function testGetLocationFromEnviroment()
-    {
-        $file = ANAX_INSTALL_PATH . "/config/api_ipstack.php";
-        if (file_exists($file)) {
-            $ipStack = require $file;
-            $api = $ipStack["apiKey"];
-            putenv("API_KEY=$api");
-        }
-
-        $geo = new GeoLocation();
-        $ipAdr = "8.8.8.8";
-        $url = "http://api.ipstack.com/";
-        $option = "?access_key=";
-        $res = $geo->getLocation($ipAdr, $url, $option);
-        $exp = "94041";
+        $exp = "30000";
         $this->assertEquals($exp, $res["zip"]);
     }
 }

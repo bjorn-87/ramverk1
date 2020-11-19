@@ -19,6 +19,27 @@ class GeoApiController implements ContainerInjectableInterface
 {
     use ContainerInjectableTrait;
 
+    private $geo;
+    private $option;
+    private $url;
+
+    /**
+     * The initialize method is optional and will always be called before the
+     * target method/action. This is a convienient method where you could
+     * setup internal properties that are commonly used by several methods.
+     *
+     * @return void
+     */
+    public function initialize(
+        string $url = "http://api.ipstack.com/",
+        string $option = "?access_key="
+    ) : void {
+        // Use to initialise member variables.
+        $this->geo = new GeoLocation();
+        $this->validateIp = new ValidateIp();
+        $this->url = $url;
+        $this->option = $option;
+    }
 
     /**
      * Shows basic instruction how to use api.
@@ -45,18 +66,13 @@ class GeoApiController implements ContainerInjectableInterface
     public function indexActionPost() : array
     {
         $ipAdr = $this->di->request->getPost("ip");
-
-        $geo = new GeoLocation("/config/api_ipstack.php");
-        $validateIp = new ValidateIp;
-        $url = "http://api.ipstack.com/";
         $mapUrl = "https://www.openstreetmap.org/search?query=";
-
-        $valid = $validateIp->validate($ipAdr);
+        $valid = $this->validateIp->validate($ipAdr);
 
         if ($valid) {
-            $location = $geo->getLocation($ipAdr, $url, "?access_key=");
-            $type = $validateIp->getIpType($ipAdr);
-            $host = $validateIp->getHostName($ipAdr);
+            $location = $this->geo->getLocation($ipAdr, $this->url, $this->option);
+            $type = $this->validateIp->getIpType($ipAdr);
+            $host = $this->validateIp->getHostName($ipAdr);
             $mapLink = $mapUrl . $location['latitude'] . "," . $location['longitude'];
             $json = [
                 "ip" => $ipAdr,

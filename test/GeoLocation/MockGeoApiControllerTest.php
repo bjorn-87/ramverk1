@@ -9,7 +9,7 @@ use Anax\DI\DIMagic;
 /**
  * Test GeoLocationController
  */
-class GeoLocationControllerTest extends TestCase
+class MockGeoApiControllerTest extends TestCase
 {
     private $controller;
 
@@ -27,19 +27,18 @@ class GeoLocationControllerTest extends TestCase
         $this->di = $di;
 
         // Create and initiate the controller
-        $this->controller = new GeoLocationController;
-        $this->controller->initialize("http://www.student.bth.se/~bjos19/dbwebb-kurser/ramverk1/me/redovisa/htdocs/testapi", "");
+        $this->controller = new MockGeoApiController();
         $this->controller->setDi($di);
     }
 
     /**
-     * Test the route "indexAction" with valid IP address.
+     * Test the route "indexActionGet" no arguments.
      */
-    public function testIndexAction()
+    public function testIndexActionGet()
     {
-        $request = $this->di->get("request");
-        $request->setGet("ip", "2.2.2.2");
+        $this->assertInstanceOf("\Bjos\GeoLocation\MockGeoApiController", $this->controller);
         $res = $this->controller->indexActionGet();
-        $this->assertInstanceOf(ResponseUtility::class, $res);
+        $result = json_decode($res);
+        $this->assertInstanceOf('stdClass', $result);
     }
 }
