@@ -19,7 +19,8 @@ return [
             // Create the service, load its configuration (if any)
             // and set it up.
             "callback" => function () {
-                $weather = new \Bjos\Weather\Weather();
+                $curl = new \Bjos\Curl\Curl;
+                $weather = new \Bjos\Weather\Weather($curl);
 
                 return $weather;
             }

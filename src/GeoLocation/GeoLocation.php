@@ -2,12 +2,15 @@
 
 namespace Bjos\GeoLocation;
 
+use Bjos\Curl\Curl;
+
 class GeoLocation
 {
     private $file;
     private $api;
     private $filePath;
     private $apiKey;
+    private $curl;
 
     /**
      *
@@ -22,6 +25,7 @@ class GeoLocation
         $this->file = ANAX_INSTALL_PATH . $this->filePath;
         $ipStack = file_exists($this->file) ? require $this->file : null;
         $this->api = $ipStack ? $ipStack[$this->apiKey] : getenv("API_KEY");
+        $this->curl = new Curl();
     }
 
     /**
@@ -60,13 +64,7 @@ class GeoLocation
         if ($url) {
             $url = $option ? $url . $ipAdr . $option . $this->api : $url;
 
-            $curl = curl_init();
-            curl_setopt($curl, CURLOPT_URL, $url);
-            curl_setopt($curl, CURLOPT_HEADER, 0);
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-            $output = curl_exec($curl);
-            curl_close($curl);
-            $res = json_decode($output, true);
+            $res = $this->curl->curlApi($url);
         }
 
         return $res;

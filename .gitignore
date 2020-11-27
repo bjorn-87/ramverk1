@@ -5,3 +5,4 @@ memory::
 composer.lock
 
 /config/api_ipstack.php
+/config/api_owm.php

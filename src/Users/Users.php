@@ -22,10 +22,7 @@ class Users
     public function getUserThroughCurl(int $userId) : array
     {
         $url = "https://rem.dbwebb.se/api/users/$userId";
-        
-        //**************************************************
-        // Skapa en klass för denna del för att förenkla testning.
-        //***************************************************
+
         //  Initiate curl handler
         $ch = curl_init();
 
@@ -40,7 +37,7 @@ class Users
 
         // Closing
         curl_close($ch);
-        // *****************************************************
+
         $user = json_decode($data, true);
         return $user;
     }
