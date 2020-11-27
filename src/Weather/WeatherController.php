@@ -82,7 +82,7 @@ class WeatherController implements ContainerInjectableInterface
             $type = "history";
         } elseif ($forecast === "forecast" && $lat && $long) {
             $forecast = $this->weather->getWeather($lat, $long);
-            $forecast = $forecast["daily"];
+            // $forecast = $forecast["daily"];
             $type = "forecast";
         }
 

@@ -26,13 +26,13 @@ namespace Anax\View;
         <th>Beskrivning</th>
         <!-- <th>Väder</th> -->
     </tr>
-    <?php foreach ($forecast as $row) : ?>
+    <?php foreach ($forecast as $key => $value) : ?>
         <tr>
-            <td><?= htmlentities($row["dt"]) ?></td>
-            <td><?= htmlentities($row["temp"]["min"]) ?>&deg;C</td>
-            <td><?= htmlentities($row["temp"]["max"]) ?>&deg;C</td>
-            <td><?= htmlentities($row["wind_speed"]) ?>m/s</td>
-            <td><?= htmlentities($row["weather"][0]["description"]) ?> <img src=" http://openweathermap.org/img/wn/<?= htmlentities($row["weather"][0]["icon"]) ?>@2x.png" alt="image"></td>
+            <td><?= htmlentities($value["date"]) ?></td>
+            <td><?= htmlentities($value["temp_min"]) ?>&deg;C</td>
+            <td><?= htmlentities($value["temp_max"]) ?>&deg;C</td>
+            <td><?= htmlentities($value["wind_speed"]) ?>m/s</td>
+            <td><?= htmlentities($value["weather"]) ?> <img src=" http://openweathermap.org/img/wn/<?= htmlentities($value["icon"]) ?>@2x.png" alt="image"></td>
         </tr>
     <?php endforeach; ?>
 </table>
@@ -44,12 +44,14 @@ namespace Anax\View;
             <th>Vind</th>
             <th>Beskrivning</th>
         </tr>
-        <?php foreach (array_reverse($forecast) as $row) : ?>
+        <?php
+        array_reverse($forecast);
+        foreach ($forecast as $key => $value) : ?>
             <tr>
-                <td><?= htmlentities($row["current"]["dt"]) ?></td>
-                <td><?= htmlentities($row["current"]["temp"]) ?>&deg;C</td>
-                <td><?= htmlentities($row["current"]["wind_speed"]) ?>m/s</td>
-                <td><?= htmlentities($row["current"]["weather"][0]["description"]) ?> <img src=" http://openweathermap.org/img/wn/<?= htmlentities($row["current"]["weather"][0]["icon"]) ?>@2x.png" alt="image"></td>
+                <td><?= htmlentities($value["date"]) ?></td>
+                <td><?= htmlentities($value["temp"]) ?>&deg;C</td>
+                <td><?= htmlentities($value["wind_speed"]) ?>m/s</td>
+                <td><?= htmlentities($value["weather"]) ?> <img src=" http://openweathermap.org/img/wn/<?= htmlentities($value["icon"]) ?>@2x.png" alt="image"></td>
             </tr>
         <?php endforeach; ?>
     </table>

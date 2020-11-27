@@ -47,7 +47,7 @@ class WeatherTest extends TestCase
         $res = $this->weather->getWeather("76", "20");
         // var_dump($res);
         $exp = "27 Nov 2020";
-        $this->assertEquals($exp, $res["daily"][0]["dt"]);
+        $this->assertEquals($exp, $res[0]["date"]);
     }
 
     /**
@@ -58,66 +58,6 @@ class WeatherTest extends TestCase
         $res = $this->weather->getHistory("76", "20");
         // var_dump($res);
         $exp = "26 Nov 2020";
-        $this->assertEquals($exp, $res[0]["current"]["dt"]);
+        $this->assertEquals($exp, $res[0]["date"]);
     }
-    //
-    // /**
-    //  * Test Validate ip with incorrect address.
-    //  */
-    // public function testValidateIncorrectIp()
-    // {
-    //     $res = $this->weather->validate("8.8.8");
-    //     $exp = false;
-    //     $this->assertEquals($exp, $res);
-    // }
-    //
-    // /**
-    //  * Test Validate ip with no address in argument.
-    //  */
-    // public function testValidateIpNoArgument()
-    // {
-    //     $res = $this->weather->validate();
-    //     $exp = false;
-    //     $this->assertEquals($exp, $res);
-    // }
-    //
-    // /**
-    //  * Test getIpType IPV4.
-    //  */
-    // public function testGetIpTypeVfour()
-    // {
-    //     $res = $this->weather->getIpType("8.8.8.8");
-    //     $exp = "IPV4";
-    //     $this->assertEquals($exp, $res);
-    // }
-    //
-    // /**
-    //  * Test getIpType IPV6.
-    //  */
-    // public function testGetIpTypeVsix()
-    // {
-    //     $res = $this->weather->getIpType("2001:db8::1428:7ab");
-    //     $exp = "IPV6";
-    //     $this->assertEquals($exp, $res);
-    // }
-    //
-    // /**
-    //  * Test getIpType invalid ip.
-    //  */
-    // public function testGetIpTypeFail()
-    // {
-    //     $res = $this->weather->getIpType("1.1.1");
-    //     $exp = null;
-    //     $this->assertEquals($exp, $res);
-    // }
-    //
-    // /**
-    //  * Test getHostName.
-    //  */
-    // public function testGetHostName()
-    // {
-    //     $res = $this->weather->getHostName("8.8.8.8");
-    //     $exp = "dns.google";
-    //     $this->assertEquals($exp, $res);
-    // }
 }
