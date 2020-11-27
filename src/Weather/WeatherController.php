@@ -21,6 +21,7 @@ class WeatherController implements ContainerInjectableInterface
     private $validate;
     protected $ipStack;
     protected $option;
+    protected $weather;
 
     /**
      * The initialize method is optional and will always be called before the
