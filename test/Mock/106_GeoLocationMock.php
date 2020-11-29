@@ -1,6 +1,6 @@
 <?php
 
-namespace Bjos\Geolocation;
+namespace Bjos\GeoLocation;
 
 /**
  * A mock class.
@@ -16,7 +16,7 @@ class GeoLocationMock extends GeoLocation
         $url = null;
         $option = null;
         $json = null;
-        
+
         if ($url) {
             $json = [
                 "continent_name" => "Asia",

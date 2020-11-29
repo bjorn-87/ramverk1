@@ -6,10 +6,7 @@ use Bjos\Curl\Curl;
 
 class GeoLocation
 {
-    private $file;
     private $api;
-    private $filePath;
-    private $apiKey;
     private $curl = null;
 
     /**
