@@ -19,7 +19,8 @@ return [
             // Create the service, load its configuration (if any)
             // and set it up.
             "callback" => function () {
-                $geolocation = new \Bjos\GeoLocation\GeoLocation();
+                $curl = new \Bjos\Curl\Curl;
+                $geolocation = new \Bjos\GeoLocation\GeoLocation($curl);
 
                 return $geolocation;
             }

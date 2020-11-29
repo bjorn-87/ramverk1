@@ -6,6 +6,7 @@ use Bjos\Weather\WeatherMock;
 use Bjos\GeoLocation\GeoLocation;
 use Bjos\Validate\validateIp;
 use Bjos\Curl\CurlMock;
+use Bjos\Curl\CurlMockGeo;
 
 /**
  * A mock class.
@@ -15,11 +16,12 @@ class WeatherControllerMock extends WeatherController
     public function initialize() : void
     {
         parent::initialize();
-        $this->ipStack = "http://www.student.bth.se/~bjos19/dbwebb-kurser/ramverk1/me/redovisa/htdocs/testapi";
-        $this->option = "";
-        $this->geo = new GeoLocation();
-        $this->validate = new ValidateIp();
+        $this->ipStack = "jjjjj";
+        $this->option = "jjjjj";
         $curl = new CurlMock();
+        $curlGeo = new CurlMockGeo();
+        $this->geo = new GeoLocation($curlGeo);
+        $this->validate = new ValidateIp();
         $this->weather = new WeatherMock($curl);
     }
 }

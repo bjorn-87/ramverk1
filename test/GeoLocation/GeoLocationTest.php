@@ -2,6 +2,8 @@
 
 namespace Bjos\GeoLocation;
 
+use Bjos\Curl\CurlMockGeo;
+
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -13,7 +15,8 @@ class GeoLocationTest extends TestCase
 
     protected function setUp() : void
     {
-        $this->geolocation = new GeoLocation("test.php");
+        $curl = new CurlMockGeo();
+        $this->geolocation = new GeoLocation($curl);
     }
 
     /**
@@ -77,6 +80,7 @@ class GeoLocationTest extends TestCase
     public function testGetLocationNoArguments()
     {
         $res = $this->geolocation->getLocation();
+        // var_dump($res);
         $exp = null;
         $this->assertEquals($exp, $res);
     }
@@ -88,7 +92,7 @@ class GeoLocationTest extends TestCase
     public function testGetLocationSuccess()
     {
         $ipAdr = "";
-        $url = "http://www.student.bth.se/~bjos19/dbwebb-kurser/ramverk1/me/redovisa/htdocs/testapi";
+        $url = "hej";
         $option = "";
         $res = $this->geolocation->getLocation($ipAdr, $url, $option);
         $exp = "30000";

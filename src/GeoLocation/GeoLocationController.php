@@ -19,7 +19,7 @@ class GeoLocationController implements ContainerInjectableInterface
 {
     use ContainerInjectableTrait;
 
-    private $geo;
+    protected $geo;
     private $option;
     private $url;
 
@@ -30,14 +30,12 @@ class GeoLocationController implements ContainerInjectableInterface
      *
      * @return void
      */
-    public function initialize(
-        string $url = "http://api.ipstack.com/",
-        string $option = "?access_key="
-    ) : void {
+    public function initialize() : void
+    {
         // Use to initialise member variables.
-        $this->geo = new GeoLocation();
-        $this->url = $url;
-        $this->option = $option;
+        $this->geo = $this->di->get("geolocation");
+        $this->url = "http://api.ipstack.com/";
+        $this->option = "?access_key=";
     }
 
     /**

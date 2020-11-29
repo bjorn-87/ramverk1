@@ -27,9 +27,9 @@ class GeoApiControllerTest extends TestCase
         $this->di = $di;
 
         // Create and initiate the controller
-        $this->controller = new GeoApiController();
+        $this->controller = new GeoApiControllerMock();
         $this->controller->setDi($di);
-        $this->controller->initialize("http://www.student.bth.se/~bjos19/dbwebb-kurser/ramverk1/me/redovisa/htdocs/testapi", "");
+        $this->controller->initialize();
     }
 
     /**

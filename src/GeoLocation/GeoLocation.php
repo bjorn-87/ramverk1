@@ -10,22 +10,20 @@ class GeoLocation
     private $api;
     private $filePath;
     private $apiKey;
-    private $curl;
+    private $curl = null;
 
     /**
      *
      * @return void
      */
-    public function __construct(
-        string $filePath = "/config/api_ipstack.php",
-        string $apiKey = "apiKey"
-    ) {
-        $this->filePath = $filePath;
-        $this->apiKey = $apiKey;
-        $this->file = ANAX_INSTALL_PATH . $this->filePath;
-        $ipStack = file_exists($this->file) ? require $this->file : null;
-        $this->api = $ipStack ? $ipStack[$this->apiKey] : getenv("API_KEY");
-        $this->curl = new Curl();
+    public function __construct(object $curl)
+    {
+        $filePath = "/config/api_ipstack.php";
+        $apiKey = "apiKey";
+        $file = ANAX_INSTALL_PATH . $filePath;
+        $ipStack = file_exists($file) ? require $file : null;
+        $this->api = $ipStack ? $ipStack[$apiKey] : getenv("API_KEY");
+        $this->curl = $curl;
     }
 
     /**
