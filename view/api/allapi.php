@@ -109,11 +109,27 @@ namespace Anax\View;
         <form class="hiddenForm" method="post" action="weatherapi">
             <input type="hidden" name="search" value="8.8.8.8"/>
             <input type="hidden" name="weather" value="forecast"/>
-            <input class="valid" type="submit" name="" value="Validerar"/>
+            <input class="valid" type="submit" name="" value="Rätt ip-adress"/>
+        </form>
+        <form class="hiddenForm" method="post" action="weatherapi">
+            <input type="hidden" name="search" value="10,10"/>
+            <input type="hidden" name="weather" value="forecast"/>
+            <input class="valid" type="submit" name="" value="Rätt koordinater 'forecast'"/>
+        </form>
+        <form class="hiddenForm" method="post" action="weatherapi">
+            <input type="hidden" name="search" value="10,10"/>
+            <input type="hidden" name="weather" value="history"/>
+            <input class="valid" type="submit" name="" value="Rätt koordinater 'history'"/>
         </form>
         <form class="hiddenForm" method="post" action="weatherapi">
             <input type="hidden" name="search" value="8.8.8.8.8"/>
-            <input class="notValid" type="submit" name="" value="Validerar inte"/>
+            <input type="hidden" name="weather" value="forecast"/>
+            <input class="notValid" type="submit" name="" value="Felaktig ip-adress"/>
+        </form>
+        <form class="hiddenForm" method="post" action="weatherapi">
+            <input type="hidden" name="search" value="1000,1000"/>
+            <input type="hidden" name="weather" value="forecast"/>
+            <input class="notValid" type="submit" name="" value="Felaktiga koordinater"/>
         </form>
     </div>
     <h3>Se väder</h3>

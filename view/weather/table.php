@@ -18,13 +18,14 @@ namespace Anax\View;
 <div class="validateIp">
     <h2>Väderleksrapport</h2>
     <h3><?= count($location) > 2 ? $location["city"] . ", " . $location["country_name"] : "Ingen stad kunde hittas."?></h3>
-<table>
+<table class="table">
     <tr class="first">
         <th>Datum</th>
         <th>Lägsta temp</th>
         <th>Högsta temp</th>
         <th>Vind</th>
         <th>Beskrivning</th>
+        <th>Ikon</th>
     </tr>
     <?php foreach ($forecast as $key => $value) : ?>
         <tr>
@@ -32,17 +33,23 @@ namespace Anax\View;
             <td><?= htmlentities($value["temp_min"]) ?>&deg;C</td>
             <td><?= htmlentities($value["temp_max"]) ?>&deg;C</td>
             <td><?= htmlentities($value["wind_speed"]) ?>m/s</td>
-            <td><?= htmlentities($value["weather"]) ?> <img src=" http://openweathermap.org/img/wn/<?= htmlentities($value["icon"]) ?>@2x.png" alt="image"></td>
+            <td><?= htmlentities($value["weather"]) ?></td>
+            <td><img src=" http://openweathermap.org/img/wn/<?= htmlentities($value["icon"]) ?>@2x.png" alt="image"></td>
         </tr>
     <?php endforeach; ?>
 </table>
+</div>
 <?php elseif ($type === "history") : ?>
-    <table>
+<div class="validateIp">
+    <h2>Historisk väderleksrapport 5 dagar tillbaka</h2>
+    <h3><?= count($location) > 2 ? $location["city"] . ", " . $location["country_name"] : "Ingen stad kunde hittas."?></h3>
+    <table class="table">
         <tr class="first">
             <th>Datum</th>
             <th>Temp</th>
             <th>Vind</th>
             <th>Beskrivning</th>
+            <th>Ikon</th>
         </tr>
         <?php
         array_reverse($forecast);
@@ -51,10 +58,12 @@ namespace Anax\View;
                 <td><?= htmlentities($value["date"]) ?></td>
                 <td><?= htmlentities($value["temp"]) ?>&deg;C</td>
                 <td><?= htmlentities($value["wind_speed"]) ?>m/s</td>
-                <td><?= htmlentities($value["weather"]) ?> <img src=" http://openweathermap.org/img/wn/<?= htmlentities($value["icon"]) ?>@2x.png" alt="image"></td>
+                <td><?= htmlentities($value["weather"]) ?></td>
+                <td><img src=" http://openweathermap.org/img/wn/<?= htmlentities($value["icon"]) ?>@2x.png" alt="image"></td>
             </tr>
         <?php endforeach; ?>
     </table>
+</div>
 <?php elseif (!$valid && $location["latitude"]) : ?>
     <div class="notValidResult">
         <h3 style="text-align: center;">Ingen väderdata hittad</h3>
@@ -68,4 +77,3 @@ namespace Anax\View;
         <h3 style="text-align: center;">Kunde inte lokalisera platsen</h3>
     </div>
 <?php endif; ?>
-</div>

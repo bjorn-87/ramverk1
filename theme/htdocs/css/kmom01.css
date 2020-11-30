@@ -5598,6 +5598,29 @@ h1 {
   width: 400px;
   border: 1px solid #444;
 }
+.validateIp th,
+.validateIp td {
+  text-align: center;
+}
+th,
+td {
+  white-space: nowrap;
+  padding: 0.8rem 1.6rem;
+}
+.right {
+  text-align: right;
+}
+tr:nth-of-type(2n) {
+  background-color: #ddd;
+}
+.table {
+  margin: 0 auto;
+  box-sizing: border-box;
+  border-collapse: collapse;
+  margin-bottom: 1.4rem;
+  box-shadow: 0 3px 5px 0 #999;
+  border-radius: 0.5rem;
+}
 /**
 * Layout style for general structure of header, navbar, main, footer
 * and other regions of the page including route specific styles.
@@ -5673,6 +5696,10 @@ h1 {
   .validateIp input[type=submit],
   .validateIp input[type=text] {
     width: 100%;
+  }
+  .table {
+    display: block;
+    overflow-x: auto;
   }
 }
 /**
