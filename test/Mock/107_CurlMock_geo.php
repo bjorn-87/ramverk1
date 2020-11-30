@@ -18,8 +18,8 @@ class CurlMockGeo extends Curl
             "latitude" => 14.970279693603516,
             "longitude" => 102.10360717773438,
             "location" => [
-                "country_flag" => "http://assets.ipstack.com/flags/th.svg"
-            ]
+                "country_flag" => "http://assets.ipstack.com/flags/th.svg",
+            ],
         ];
 
         return $json;

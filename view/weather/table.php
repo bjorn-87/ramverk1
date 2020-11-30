@@ -12,11 +12,12 @@ namespace Anax\View;
 // if (!is_array($forecast)) {
 //     return;
 // }
-// var_dump($forecast);
+// var_dump($location);
 ?>
 <?php if ($type === "forecast") : ?>
 <div class="validateIp">
     <h2>Väderleksrapport</h2>
+    <h3><?= count($location) > 2 ? $location["city"] . ", " . $location["country_name"] : "Ingen stad kunde hittas."?></h3>
 <table>
     <tr class="first">
         <th>Datum</th>
@@ -24,7 +25,6 @@ namespace Anax\View;
         <th>Högsta temp</th>
         <th>Vind</th>
         <th>Beskrivning</th>
-        <!-- <th>Väder</th> -->
     </tr>
     <?php foreach ($forecast as $key => $value) : ?>
         <tr>
@@ -55,13 +55,17 @@ namespace Anax\View;
             </tr>
         <?php endforeach; ?>
     </table>
+<?php elseif (!$valid && $location["latitude"]) : ?>
+    <div class="notValidResult">
+        <h3 style="text-align: center;">Ingen väderdata hittad</h3>
+    </div>
 <?php elseif (!$valid) : ?>
     <div class="notValidResult">
-        <h3 style="text-align: center;">Not a valid input</h3>
+        <h3 style="text-align: center;">Felaktig input</h3>
     </div>
 <?php else : ?>
     <div class="validResult">
-        <h3 style="text-align: center;">No location found</h3>
+        <h3 style="text-align: center;">Kunde inte lokalisera platsen</h3>
     </div>
 <?php endif; ?>
 </div>

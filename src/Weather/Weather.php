@@ -2,8 +2,6 @@
 
 namespace Bjos\Weather;
 
-use Bjos\Curl\Curl;
-
 /**
  * A class to get weather info from an api.
  */
@@ -34,14 +32,42 @@ class Weather
      *
      * @return array
      */
+    public function getLatLong(string $ipAdr = null)
+    {
+        $location = null;
+        $lat = null;
+        $long = null;
+        $coords = explode(",", $ipAdr);
+        $coordsLength = count($coords);
+
+        if (is_array($coords) && $coordsLength === 2) {
+            if (is_numeric($coords[0]) && is_numeric($coords[1])) {
+                $lat = floatval($coords[0]);
+                $long = floatval($coords[1]);
+            }
+        }
+
+        $location["latitude"] = $lat;
+        $location["longitude"] = $long;
+
+        return $location;
+    }
+
+    /**
+     * Get upcoming weather from api.
+     *
+     * @return array
+     */
     public function getWeather(string $lat = null, string $lon = null)
     {
+        $forecast = null;
         $api = $this->api;
         $exclude = "exclude=minutely,hourly,current";
         $url = $this->url . "?lat={$lat}&lon={$lon}&units=metric&lang=sv&{$exclude}&appid={$api}";
-
-        $forecast = $this->curl->curlApi($url);
-        $forecast = $this->getData($forecast);
+        if ($lat && $lon) {
+            $forecast = $this->curl->curlApi($url);
+            $forecast = $this->getData($forecast);
+        }
 
         return $forecast;
     }
@@ -53,18 +79,20 @@ class Weather
      */
     public function getHistory(string $lat = null, string $lon = null)
     {
+        $forecast = null;
         $urls = [];
         $units = "units=metric";
         $lang = "lang=sv";
         $appid = "appid=" . $this->api;
+        if ($lat && $lon) {
+            for ($i=1; $i < 6; $i++) {
+                $date = date(strtotime("-{$i} days"));
+                $urls[] = $this->url . "/timemachine?lat={$lat}&lon={$lon}&dt={$date}&{$units}&{$lang}&{$appid}";
+            }
 
-        for ($i=1; $i < 6; $i++) {
-            $date = date(strtotime("-{$i} days"));
-            $urls[] = $this->url . "/timemachine?lat={$lat}&lon={$lon}&dt={$date}&{$units}&{$lang}&{$appid}";
+            $forecast = $this->curl->multiCurlApi($urls);
+            $forecast = $this->getData($forecast, "current");
         }
-
-        $forecast = $this->curl->multiCurlApi($urls);
-        $forecast = $this->getData($forecast, "current");
         return $forecast;
     }
 

@@ -40,6 +40,45 @@ class WeatherTest extends TestCase
     }
 
     /**
+     * Test getLatLong.
+     */
+    public function testGetLatLong()
+    {
+        $res = $this->weather->getLatLong("76, 20");
+        // var_dump($res);
+        $exp1 = 76.0;
+        $exp2 = 20.0;
+        $this->assertEquals($exp1, $res["latitude"]);
+        $this->assertEquals($exp2, $res["longitude"]);
+    }
+
+    /**
+     * Test getLatLong Fail.
+     */
+    public function testGetLatLongFail()
+    {
+        $res = $this->weather->getLatLong("15, 13, 12");
+        // var_dump($res);
+        $exp1 = null;
+        $exp2 = null;
+        $this->assertEquals($exp1, $res["latitude"]);
+        $this->assertEquals($exp2, $res["longitude"]);
+    }
+
+    /**
+     * Test getLatLong Fail number two.
+     */
+    public function testGetLatLongFailTwo()
+    {
+        $res = $this->weather->getLatLong("sdgdf, dfghfgh");
+        // var_dump($res);
+        $exp1 = null;
+        $exp2 = null;
+        $this->assertEquals($exp1, $res["latitude"]);
+        $this->assertEquals($exp2, $res["longitude"]);
+    }
+
+    /**
      * Test getWeather.
      */
     public function testGetWeather()

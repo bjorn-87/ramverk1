@@ -24,7 +24,7 @@ namespace Anax\View;
             <input type="radio" id="hist" name="weather" value="hist">
         </div>
         <label>Ip-adress eller kommaseparerade koordinater(lat,long):</label>
-        <input type="text" name="ip" value="<?= htmlentities($userIp) ?>"/>
+        <input type="text" name="search" value="<?= htmlentities($userIp) ?>"/>
         <input type="submit" name="" value="Validera"/>
     </form>
 </div>

@@ -11,14 +11,13 @@ use Anax\Commons\ContainerInjectableTrait;
 
 /**
  * Controller to get weather information.
- * @SuppressWarnings(PHPMD.CyclomaticComplexity)
  */
 class WeatherController implements ContainerInjectableInterface
 {
     use ContainerInjectableTrait;
 
-    private $geo;
     private $validate;
+    protected $geo;
     protected $ipStack;
     protected $option;
     protected $weather;
@@ -55,37 +54,31 @@ class WeatherController implements ContainerInjectableInterface
         $type = null;
         $userIp = $this->geo->getUserIp();
 
-        $ipAdr = $this->di->request->getGet("ip") ? $this->di->request->getGet("ip") : $userIp;
-
-        $coords = explode(",", $ipAdr);
-        $coordsLength = count($coords);
-
+        $ipAdr = $this->di->request->getGet("search") ? $this->di->request->getGet("search") : $userIp;
         $forecast = $this->di->request->getGet("weather") ? $this->di->request->getGet("weather") : "forecast";
-
         $valid = $this->validate->validate($ipAdr);
 
         if ($valid) {
             $location = $this->geo->getLocation($ipAdr, $this->ipStack, $this->option);
             $lat = $location["latitude"];
             $long = $location["longitude"];
-        } elseif (is_array($coords) && $coordsLength === 2) {
-            if (is_numeric($coords[0]) && is_numeric($coords[1])) {
-                $lat = floatval($coords[0]);
-                $location["latitude"] = $lat;
-                $long = floatval($coords[1]);
-                $location["longitude"] = $long;
+        } else {
+            $location = $this->weather->getLatLong($ipAdr);
+            $lat = $location["latitude"];
+            $long = $location["longitude"];
+        }
+
+        if ($forecast === "hist") {
+            $forecast = $this->weather->getHistory($lat, $long);
+            if ($forecast) {
+                $type = "history";
+            }
+        } elseif ($forecast === "forecast") {
+            $forecast = $this->weather->getWeather($lat, $long);
+            if ($forecast) {
+                $type = "forecast";
             }
         }
-
-        if ($forecast === "hist" && $lat && $long) {
-            $forecast = $this->weather->getHistory($lat, $long);
-            $type = "history";
-        } elseif ($forecast === "forecast" && $lat && $long) {
-            $forecast = $this->weather->getWeather($lat, $long);
-            // $forecast = $forecast["daily"];
-            $type = "forecast";
-        }
-
 
         $data = [
             "userIp" => $userIp,
@@ -98,6 +91,7 @@ class WeatherController implements ContainerInjectableInterface
             "location" => $location
         ]);
         $page->add("weather/table", [
+            "location" => $location,
             "type" => $type,
             "forecast" => $forecast,
             "valid" => $valid,

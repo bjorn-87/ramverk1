@@ -84,6 +84,11 @@ return [
             "title" => "Väder",
         ],
         [
+            "text" => "Api",
+            "url" => "api",
+            "title" => "Api",
+        ],
+        [
             "text" => "Verktyg",
             "url" => "verktyg",
             "title" => "Verktyg och möjligheter för utveckling.",

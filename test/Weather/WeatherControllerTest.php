@@ -27,7 +27,7 @@ class WeatherControllerTest extends TestCase
         $this->di = $di;
 
         // Create and initiate the controller
-        $this->controller = new WeatherControllerMock;
+        $this->controller = new WeatherControllerMock();
         $this->controller->setDi($di);
         $this->controller->initialize();
     }
@@ -37,7 +37,7 @@ class WeatherControllerTest extends TestCase
      */
     public function testIndexActionWithIpAndForcast()
     {
-        $this->di->request->setGet("ip", "2.2.2.2");
+        $this->di->request->setGet("search", "2.2.2.2");
         $res = $this->controller->indexActionGet();
         $this->assertInstanceOf(ResponseUtility::class, $res);
     }
@@ -47,7 +47,7 @@ class WeatherControllerTest extends TestCase
      */
     public function testIndexActionWithIpAndHistory()
     {
-        $this->di->request->setGet("ip", "2.2.2.2");
+        $this->di->request->setGet("search", "2.2.2.2");
         $this->di->request->setGet("weather", "hist");
         $res = $this->controller->indexActionGet();
         $this->assertInstanceOf(ResponseUtility::class, $res);
@@ -58,7 +58,7 @@ class WeatherControllerTest extends TestCase
      */
     public function testIndexActionWithLatLongForcast()
     {
-        $this->di->request->setGet("ip", "67, 20");
+        $this->di->request->setGet("search", "67, 20");
         $res = $this->controller->indexActionGet();
         $this->assertInstanceOf(ResponseUtility::class, $res);
     }
@@ -68,7 +68,7 @@ class WeatherControllerTest extends TestCase
      */
     public function testIndexActionWithLatLongHistory()
     {
-        $this->di->request->setGet("ip", "67, 20");
+        $this->di->request->setGet("search", "67, 20");
         $this->di->request->setGet("weather", "hist");
         $res = $this->controller->indexActionGet();
         $this->assertInstanceOf(ResponseUtility::class, $res);
@@ -79,7 +79,7 @@ class WeatherControllerTest extends TestCase
      */
     public function testIndexActionWithLatLongForecastFail()
     {
-        $this->di->request->setGet("ip", "fdgjdfg, gfjfgj");
+        $this->di->request->setGet("search", "fdgjdfg, gfjfgj");
         $res = $this->controller->indexActionGet();
         $this->assertInstanceOf(ResponseUtility::class, $res);
     }
