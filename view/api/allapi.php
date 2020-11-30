@@ -140,7 +140,7 @@ namespace Anax\View;
             <input type="radio" id="forecast" name="weather" checked value="forecast">
         </div>
         <div class="radioBtn">
-            <label for="hist">Föregående 5 dagar</label>
+            <label for="history">Föregående 5 dagar</label>
             <input type="radio" id="history" name="weather" value="history">
         </div>
         <label>Skriv in ip-adress att lokalisera:</label>
