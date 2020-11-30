@@ -23,3 +23,14 @@ return [
     "apiKey" => "Replace this with valid Apikey"
 ];
 ```
+
+# Add api key from [openweathermap one-call-api](https://openweathermap.org/api/one-call-api)
+Create file `/config/api_owm.php` and copy the code below or rename the file `/config/api_owm_sample.php`.  
+
+```
+<?php
+
+return [
+    "apiKey" => "Replace this with valid Apikey"
+];
+```
