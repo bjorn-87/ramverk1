@@ -71,9 +71,7 @@ class WeatherApiController implements ContainerInjectableInterface
         $long = null;
         $location= null;
         $type = ["history", "forecast"];
-        $userIp = null;
         $forecast = null;
-        $weather = null;
         $city = null;
         $country = null;
         $userIp = $this->geo->getUserIp();
