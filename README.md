@@ -1,5 +1,5 @@
 Travis  
-[![Build Status](https://travis-ci.com/bjorn-87/ramverk1.svg?branch=master)](https://travis-ci.com/bjorn-87/ramverk1)
+[![Build Status](https://travis-ci.com/bjorn-87/ramverk1.svg?branch=master)](https://travis-ci.com/bjorn-87/ramverk1)  
 Scrutinizer  
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/bjorn-87/ramverk1/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/bjorn-87/ramverk1/?branch=master)  
 [![Code Coverage](https://scrutinizer-ci.com/g/bjorn-87/ramverk1/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/bjorn-87/ramverk1/?branch=master)  
