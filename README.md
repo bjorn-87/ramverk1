@@ -5,7 +5,11 @@ Scrutinizer
 [![Code Coverage](https://scrutinizer-ci.com/g/bjorn-87/ramverk1/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/bjorn-87/ramverk1/?branch=master)  
 [![Build Status](https://scrutinizer-ci.com/g/bjorn-87/ramverk1/badges/build.png?b=master)](https://scrutinizer-ci.com/g/bjorn-87/ramverk1/build-status/master)  
 CircleCI  
-[![<ORG_NAME>](https://circleci.com/gh/bjorn-87/ramverk1.svg?style=svg)](https://app.circleci.com/pipelines/github/bjorn-87/ramverk1)
+[![<ORG_NAME>](https://circleci.com/gh/bjorn-87/ramverk1.svg?style=svg)](https://app.circleci.com/pipelines/github/bjorn-87/ramverk1)  
+Codeclimate  
+[![Maintainability](https://api.codeclimate.com/v1/badges/83cf9ad1738c64e65f5c/maintainability)](https://codeclimate.com/github/bjorn-87/ramverk1/maintainability)  
+SymfonyInsight  
+[![SymfonyInsight](https://insight.symfony.com/projects/8e7e41d3-0f7f-4a2b-8e90-0e1ad7889ffa/mini.svg)](https://insight.symfony.com/projects/8e7e41d3-0f7f-4a2b-8e90-0e1ad7889ffa)  
 
 My redovisa repo
 ================
