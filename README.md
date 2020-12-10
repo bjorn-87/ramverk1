@@ -8,7 +8,7 @@ CircleCI
 [![<ORG_NAME>](https://circleci.com/gh/bjorn-87/ramverk1.svg?style=svg)](https://app.circleci.com/pipelines/github/bjorn-87/ramverk1)
 
 My redovisa repo
-==============
+================
 
 My name is Björn Olsson.
 This is my repo for the BTH course Ramverk1-V2.
