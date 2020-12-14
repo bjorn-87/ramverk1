@@ -89,6 +89,11 @@ return [
             "title" => "Api",
         ],
         [
+            "text" => "Böcker",
+            "url" => "book",
+            "title" => "Böcker",
+        ],
+        [
             "text" => "Verktyg",
             "url" => "verktyg",
             "title" => "Verktyg och möjligheter för utveckling.",
