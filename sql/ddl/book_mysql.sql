@@ -23,7 +23,7 @@ USE ramverk1;
 
 
 -- Ensure UTF8 on the database connection
-SET NAMES utf8;
+SET NAMES utf8mb4;
 
 
 
@@ -35,6 +35,6 @@ CREATE TABLE Book (
     `id` INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
     `title` VARCHAR(256) NOT NULL,
     `author` VARCHAR(256) NOT NULL,
-    `description` VARCHAR(256) NOT NULL,
+    `description` VARCHAR(500) NOT NULL,
     `image` VARCHAR(256) NOT NULL
 ) ENGINE INNODB CHARACTER SET utf8mb4 COLLATE utf8mb4_swedish_ci;
